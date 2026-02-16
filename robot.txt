@@ -18,4 +18,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://tvjudaica.com/sitemap.xml
+Sitemap: https://tvjudaica.com.br/sitemap.xml
