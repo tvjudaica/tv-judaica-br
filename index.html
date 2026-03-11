@@ -133,6 +133,37 @@
         </div>
     </section>
 
+    <section id="patrocinadores" class="py-5 patrocinadores-section">
+        <div class="container text-center">
+            <h2 class="mb-3">Nossos Patrocinadores</h2>
+            <p class="lead mb-5">
+                Empresas e parceiros que acreditam na missão da TV Judaica ajudam a levar
+                cultura, informação e valores para milhares de espectadores todos os dias.
+                Se sua empresa deseja apoiar este projeto e fortalecer a presença da
+                cultura judaica na mídia, será um prazer tê-lo conosco.
+            </p>
+            <div id="patrocinadorCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carousel-patrocinadores">
+                </div>
+            </div>
+            <div class="mt-5 patrocinador-contato">
+                <h4 class="mb-3">Torne-se um patrocinador</h4>
+                <p>
+                    Sua marca pode estar presente em nossa programação e alcançar uma
+                    audiência qualificada e engajada. Entre em contato conosco para
+                    conhecer as oportunidades de parceria.
+                </p>
+                <p class="mt-3">
+                    <i class="fas fa-envelope"></i>
+                    contato@tvjudaica.com
+                    &nbsp;&nbsp;
+                    <i class="fab fa-whatsapp"></i>
+                    +55 (11) 9 9017-1621
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="youtube-playlists" class="py-5 bg-dark text-white">
         <div class="container">
             <div class="row mb-4">
@@ -305,6 +336,34 @@
                 }
                 $("#carousel-playlists").html(html);
             });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("json/patrocinadores.json", function (data) {
+                let html = "";
+                $.each(data, function (i, item) {
+                    if (!item.ativo) return;
+                    let active = i === 0 ? "active" : "";
+                    html += `
+            <div class="carousel-item ${active}">
+                <div class="patrocinador-slide text-center">
+                    <a href="${item.link_destino}" target="_blank">
+                        <img src="${item.imagem_url}" alt="${item.nome_patrocinador}" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+            `;
+                });
+                $("#carousel-patrocinadores").html(html);
+            });
+        });
+
+        new bootstrap.Carousel(document.querySelector('#patrocinadorCarousel'), {
+            interval: 4000,
+            ride: 'carousel',
+            pause: false
         });
     </script>
 

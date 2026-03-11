@@ -256,3 +256,33 @@ footer a {
 .btn-playlist:hover {
     background: #cc0000;
 }
+
+.patrocinadores-section {
+    background: #001f3e;
+    color: white;
+}
+
+.patrocinadores-section h2 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.patrocinador-slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform .3s ease;
+}
+
+.patrocinador-slide img:hover {
+    transform: scale(1.03);
+}
+
+.patrocinador-contato i {
+    margin-right: 6px;
+    color: #25d366;
+}
+
+.patrocinador-contato .fa-envelope {
+    color: #ffc107;
+}
