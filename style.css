@@ -286,3 +286,28 @@ footer a {
 .patrocinador-contato .fa-envelope {
     color: #ffc107;
 }
+
+.anunciantes-section {
+    background: #001f3e;
+    color: white;
+}
+
+.anunciante-slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform .3s ease;
+}
+
+.anunciante-slide img:hover {
+    transform: scale(1.03);
+}
+
+.anunciante-contato i {
+    margin-right: 6px;
+    color: #25d366;
+}
+
+.anunciante-contato .fa-envelope {
+    color: #ffc107;
+}

@@ -279,6 +279,37 @@
         </div>
     </section>
 
+    <section id="anunciantes" class="py-5 anunciantes-section">
+        <div class="container text-center">
+            <h2 class="mb-3">Anunciantes</h2>
+            <p class="lead mb-5">
+                Empresas e organizações que anunciam na TV Judaica ampliam sua presença
+                em uma audiência qualificada e engajada. Nossa programação conecta
+                cultura, informação e valores a milhares de espectadores diariamente.
+            </p>
+            <div id="anuncianteCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carousel-anunciantes">
+                </div>
+            </div>
+            <div class="mt-5 anunciante-contato">
+                <h4 class="mb-3">Anuncie na TV Judaica</h4>
+                <p>
+                    Se sua empresa deseja divulgar produtos ou serviços para uma
+                    audiência relevante e comprometida com cultura e informação,
+                    entre em contato conosco para conhecer nossas oportunidades
+                    de publicidade.
+                </p>
+                <p class="mt-3">
+                    <i class="fas fa-envelope"></i>
+                    contato@tvjudaica.com
+                    &nbsp;&nbsp;
+                    <i class="fab fa-whatsapp"></i>
+                    +55 (11) 9 9017-1621
+                </p>
+            </div>
+        </div>
+    </section>
+
     <footer class="text-center">
         <div class="container">
             <div class="d-flex justify-content-center gap-2 footer-store">
@@ -362,6 +393,33 @@
 
         new bootstrap.Carousel(document.querySelector('#patrocinadorCarousel'), {
             interval: 4000,
+            ride: 'carousel',
+            pause: false
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("json/anunciantes.json", function (data) {
+                let html = "";
+                $.each(data, function (i, item) {
+                    if (!item.ativo) return;
+                    let active = i === 0 ? "active" : "";
+                    html += `
+            <div class="carousel-item ${active}">
+                <div class="anunciante-slide text-center">
+                    <a href="${item.link_destino}" target="_blank">
+                        <img src="${item.imagem_url}" alt="${item.titulo}" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+            `;
+                });
+                $("#carousel-anunciantes").html(html);
+            });
+        });
+        new bootstrap.Carousel(document.querySelector('#anuncianteCarousel'), {
+            interval: 5000,
             ride: 'carousel',
             pause: false
         });
